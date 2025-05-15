@@ -15,23 +15,23 @@
 ```c++
 // KMP
 next[1] = 0;
-for (int i = 2, j = 0; i <= n; i ++) {
+for (int i = 2, j = 0; i <= m; i ++) {
 	while (j > 0 && p[i] != p[j + 1]) j = next[j];
 	if (p[i] == p[j + 1]) j++;
 	next[i] = j;
 }
 
-for (int i = 1, j = 0; i <= m; i++) {
+for (int i = 1, j = 0; i <= n; i++) {
 	while (j > 0 && (j == n || s[i] != p[j + 1])) j = next[j];
 	if (s[i] == p[j + 1]) j++;
 	f[i] = j;
-	// if (f[i] == n), this marks an occurrence of A in B
+	// if (f[i] == m), this marks an occurrence of A in B
 }
 ```
 
 
 
-##### RobinKarp
+##### Robin-Karp
 
 ```C++
 // const int mod = (1 << 16) + 1; 
